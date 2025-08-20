@@ -1,0 +1,38 @@
+<odoo>
+    <data noupdate="1">
+        <record id="email_template_otp_number_manager" model="mail.template">
+            <field name="name">OTP Number for Employee</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="subject">Employee Verification Code</field>
+            <field name="email_from">{{ object.company_id.email or '' }}</field>
+            <field name="email_to">{{ object.parent_id.work_email or '' }}</field>
+            <field name="description">Sent Verification Code to the Manager Employee</field>
+            <field name="body_html" type="html">
+                <p>Hello Hallo <t t-out="object.parent_id.name"/>,</p>
+                <p>Your employee <t t-out="object.name"/> has requested a verification code.</p>
+                <p><strong>OTP Number:</strong> <t t-out="object.otp_number"/></p>
+                <p>Please share this number securely with the employee.</p>
+                <p>Best regards,</p>
+                <p>Your Company</p>
+            </field>
+        </record>
+ 
+
+        <record id="email_template_otp_number_employee" model="mail.template">
+            <field name="name">OTP Number</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="subject">Verification Code</field>
+            <field name="email_from">{{ object.company_id.email or '' }}</field>
+            <field name="email_to">{{ object.work_email }}</field>
+            <field name="description">Sent Verification Code to the Employee</field>
+            <field name="body_html" type="html">
+                <p>Hello Hallo <t t-out="object.name"/>,</p>
+                <p>You requested a verification code.</p>
+                <p><strong>OTP Number:</strong> <t t-out="object.otp_number"/></p>
+                <p>Please share this number securely with the employee.</p>
+                <p>Best regards,</p>
+                <p>Your Company</p>
+            </field>
+        </record>
+    </data>
+</odoo>

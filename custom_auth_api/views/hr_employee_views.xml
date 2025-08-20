@@ -1,0 +1,30 @@
+<odoo>
+    <record id="view_hr_employee_form_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="after">
+                <button name="generate_otp_number" type="object" string="Generate Number" class="btn btn-primary"/>
+            </xpath>
+
+            <xpath expr="//notebook/page[last()]" position="after">
+                <page string="HR Mobile App" name="hr_mobile_app">
+                    <group>
+                        <group>
+                            <field name="otp_number" />
+                            <field name="generated_at" invisible="1" />
+                            <field name="location_ids" />
+                            <field name="mac_address" />
+                            <field name="is_admin" />
+                        </group>
+                        <group>
+                            <field name="password" groups="custom_auth_api.group_mobile_admin"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,17 @@
+<odoo>
+    <data noupdate="0">
+
+        <record id="module_category_mobile" model="ir.module.category">
+            <field name="name">Mobile Access</field>
+            <field name="description">Groups for mobile-based custom rules</field>
+            <field name="sequence">100</field>
+        </record>
+
+        <record id="group_mobile_admin" model="res.groups">
+            <field name="name">Mobile Admin</field>
+            <field name="category_id" ref="custom_auth_api.module_category_mobile"/>
+        </record>
+
+    </data>
+</odoo>
+ 

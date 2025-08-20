@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hr_attendance.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <div data-string="Attendances" position="inside">                
+                <h2>Expiration Time (Hours)</h2>
+                <div class="row mt16 o_settings_container"> 
+                    <div class="col-12 col-lg-12 o_setting_box">
+                        <group>
+                            <group>
+                                <field name="expiration_hours"/>
+                            </group>
+                        </group>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>

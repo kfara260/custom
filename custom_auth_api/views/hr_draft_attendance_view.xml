@@ -1,0 +1,25 @@
+<odoo>
+    <record id="view_hr_draft_attendance_tree_inherit" model="ir.ui.view">
+        <field name="name">hr.draft.attendance.tree.inherit</field>
+        <field name="model">hr.draft.attendance</field>
+        <field name="inherit_id" ref="hr_attendance_zktecho.hrdraftattendance_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-danger">location_status</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='attendance_status']" position="after">
+                <field name="location_status"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_hr_draft_attendance_form_inherit" model="ir.ui.view">
+        <field name="name">hr.draft.attendance.form.inherit</field>
+        <field name="model">hr.draft.attendance</field>
+        <field name="inherit_id" ref="hr_attendance_zktecho.hrdraftattendance_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='attendance_status']" position="after">
+                <field name="location_status" /> 
+            </xpath>
+        </field>
+    </record>
+</odoo>
